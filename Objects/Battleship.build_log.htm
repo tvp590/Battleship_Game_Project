@@ -1,0 +1,121 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Faculty of Engineering Labs, University of Regina, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+H:\Ense352_labs\Battleship_project\Battleship.uvprojx
+Project File Date:  11/23/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+src/Battleship.cpp(23): warning: In file included from...
+src/../include/io.h(1): warning: C++98 requires newline at end of file [-Wc++98-compat-pedantic]
+void displaySea(void);
+                      ^
+src/Battleship.cpp(15): warning: In file included from...
+src/../include/battleship.h(11): warning: padding struct 'Vessel' with 3 bytes to align 'length' [-Wpadded]
+        unsigned int length;
+                     ^
+src/Battleship.cpp(313): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                        GPIOA->ODR &= ~GPIO_ODR_ODR4;
+                                                                   ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(314): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                        GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                   ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(320): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR4;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(321): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                          GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                     ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(322): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR1;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(330): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(331): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR4;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(332): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(340): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR1;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(341): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(342): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(348): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR0 ;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(349): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR1;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(350): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                                                                GPIOA->ODR &= ~GPIO_ODR_ODR4;
+                                                                           ~~ ^~~~~~~~~~~~~~
+src/Battleship.cpp(518): warning: comparison of integers of different signs: 'int' and 'std::vector<std::string>::size_type' (aka 'unsigned int') [-Wsign-compare]
+                                                while(temp < sunkboats.size())
+                                                      ~~~~ ^ ~~~~~~~~~~~~~~~~
+17 warnings generated.
+compiling Battleship.cpp...
+linking...
+Program Size: Code=7360 RO-data=428 RW-data=0 ZI-data=2200  
+".\Objects\Battleship.axf" - 0 Error(s), 17 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F103RB
+  .\RTE\_Target_1
+  C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Temp\Keil\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

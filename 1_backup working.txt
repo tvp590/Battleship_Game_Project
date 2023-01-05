@@ -1,0 +1,366 @@
+#include "../include/battleship.h"
+//#include <iostream>
+#include <string>
+#include<cstring>
+#include <vector>
+#ifdef NO_HARDWARE
+#include "../include/io_hw.h"
+#else
+#include "../include/io.h"
+#endif
+ 
+
+#include "stm32f10x.h"
+
+using namespace std;
+
+
+static struct Vessel vessels[5];
+
+void configureClocks(void);									//Enable clock which gives power to port A and B
+void configureIO(void);											// function to configure io for all require pins of both port
+void turnonLED(int);
+int Insert(void);
+void IsbuttonPressed(void);
+void Delay(void);
+
+
+void setupShips(void);											
+int attack(Location location,	vector <string> &sunkboats);
+bool checkInputs(Location checkTarget);
+//unsigned sleep (unsigned seconds);
+
+int main()
+{
+		configureClocks();
+ 		configureIO();
+	
+		setupShips();
+
+	
+		bool gameplay = true;
+		vector <string> allboats;
+    struct Location target;
+		int result = 7;    //decalring as an initial value 
+		turnonLED(result);
+			while(gameplay)
+			{
+					
+					turnonLED(result);
+									Delay();
+									IsbuttonPressed();														// waiting untill button is pressed
+									target.r = Insert();
+									Delay();
+				
+									IsbuttonPressed();															// waiting untill button is pressed
+									target.c = Insert();
+								
+							
+							//if(checkInputs(target)){
+								 result = attack(target,allboats);
+									turnonLED(result);
+										Delay();													// to blink LED light
+								if(allboats.size() == 5){
+										result = 9;
+										turnonLED(result);
+										gameplay = false;
+								}
+							//}
+							//else{
+								//result = 33;
+								//turnonLED(result);
+								//Delay();
+								//continue;											// add code for error light here
+							//}
+					}
+					
+    return 0;
+}
+
+
+void configureClocks(void){
+	
+	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN |   RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN ;
+}  
+
+void configureIO(void)
+{
+	
+	// FOR OUTPUT LEDS			
+				//port A pin 0
+				GPIOA->CRL |= GPIO_CRL_MODE0_0; 															// for mode bit to set 11
+				GPIOA->CRL &=  ~GPIO_CRL_CNF0;																// for cnf bit to set 00
+				
+				//port A pin 1
+				GPIOA->CRL |= GPIO_CRL_MODE1_0;																 // for mode bit to set 11
+				GPIOA->CRL &= ~GPIO_CRL_CNF1;																// for cnf bit to set 00
+				
+				// port A pin4
+				GPIOA->CRL |= GPIO_CRL_MODE4_0;														 // for mode bit to set 11
+				GPIOA->CRL &= ~GPIO_CRL_CNF4 ;            							// for cnf bit to set 00
+				
+					// port A pin5
+				GPIOA->CRL |= GPIO_CRL_MODE5_0;														 // for mode bit to set 11
+				GPIOA->CRL &= ~GPIO_CRL_CNF5 ; 
+	
+	
+				// PORT B pin0
+					GPIOB->CRL |= GPIO_CRL_MODE0_0;
+					GPIOB->CRL &= ~GPIO_CRL_CNF0;    
+	
+	// FOR INPUTS 
+				//PORT B PIN 4																	// already in reset state=> cnf = 01,  mode=>00 for all this pins
+				//PORT B PIN6
+				//PORT B PIN 8
+				//PORT B PIN9
+				
+}
+
+void IsbuttonPressed(void){
+		bool input = false;
+		int result = 10;
+		turnonLED(result);
+	while(input == false)
+	{	
+			if((GPIOC->IDR & GPIO_IDR_IDR13)==0x0){
+						Delay();
+							input = true; 			
+			}
+	}
+}
+void Delay(void)
+{	
+	unsigned volatile int i,j;
+	for( i = 0; i<3000;i++)
+	{
+		for( j =0;j<3000;j++)
+		{	}
+	}
+}
+int Insert(){
+		int switch_0 = 0;
+		int switch_1 = 0;
+		int switch_2 = 0;
+		int switch_3 = 0;
+	
+		int switch0 = 0;
+	 int switch1 = 0;
+	 int switch2 = 0;
+	 int switch3 = 0;
+	//	int portB_idr = GPIOB->IDR; 
+		int Calculate = 0;
+	
+		switch_0 =	GPIOB->IDR & GPIO_IDR_IDR4 ;
+		switch_1 = GPIOB->IDR & GPIO_IDR_IDR6;
+		switch_2 = GPIOB->IDR & GPIO_IDR_IDR8;
+		switch_3 = GPIOB->IDR & GPIO_IDR_IDR9;
+	
+/*		switch_0 =	GPIOB->IDR & GPIO_IDR_IDR9 ;
+		switch_1 = GPIOB->IDR & GPIO_IDR_IDR8;
+		switch_2 = GPIOB->IDR & GPIO_IDR_IDR6;
+		switch_3 = GPIOB->IDR & GPIO_IDR_IDR4;*/
+	
+		if(switch_0!=0x0){switch0 = 1;} 
+		else {switch0 =0;}
+		
+		if(switch_1!=0x0){switch1 = 1;}
+		else {switch1 =0;}
+		
+		if(switch_2!=0x0){switch2 = 1;} 
+		else {switch2 =0;}
+		
+		if(switch_3!=0x0){switch3 = 1;} 
+		else {switch3 =0;}
+
+		Calculate = (8* switch0) + (4*switch1) +  (2*switch2) +   switch3;
+	 
+	return Calculate;
+		
+}
+
+void turnonLED(int outcome)
+{
+		switch(outcome){
+			case 33 : //for error in input
+							GPIOA->ODR |= GPIO_ODR_ODR0 ;
+							GPIOA->ODR |= GPIO_ODR_ODR1 ;
+							GPIOA->ODR &= ~GPIO_ODR_ODR4;
+							GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+		
+							Delay();
+								break;
+							
+			case 10 : //for waiting for input
+								GPIOA->ODR &= ~GPIO_ODR_ODR4;
+							  GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+								GPIOA->ODR &= ~GPIO_ODR_ODR1;
+								GPIOA->ODR |= GPIO_ODR_ODR0 ;
+								
+								Delay();
+								break;
+			
+			
+			case -1: 	//when missed  
+								GPIOA->ODR &= ~GPIO_ODR_ODR0 ;
+								GPIOA->ODR &= ~GPIO_ODR_ODR4;
+								GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+								GPIOA->ODR |= GPIO_ODR_ODR1 ;
+								
+								Delay();
+								break;
+			
+			
+			case 0: //when hit
+								GPIOA->ODR &= ~GPIO_ODR_ODR1;
+								GPIOB->ODR &= ~GPIO_ODR_ODR0 ;
+								GPIOA->ODR &= ~GPIO_ODR_ODR0 ;
+								GPIOA->ODR |= GPIO_ODR_ODR4 ;
+								Delay();
+								break;
+			
+			case 1: //when one ship sunk
+								GPIOA->ODR &= ~GPIO_ODR_ODR0 ;
+								GPIOA->ODR &= ~GPIO_ODR_ODR1;
+								GPIOA->ODR &= ~GPIO_ODR_ODR4;
+								GPIOB->ODR |= GPIO_ODR_ODR0 ;
+								Delay();
+								break;
+			
+			case 9 : //when all ships sunk and game over
+								GPIOA->ODR |= GPIO_ODR_ODR0 ;
+								GPIOA->ODR |= GPIO_ODR_ODR1 ;
+								GPIOA->ODR |= GPIO_ODR_ODR4 ;
+								GPIOB->ODR |= GPIO_ODR_ODR0 ;
+								Delay();
+								break;
+			
+			case 7 :
+							GPIOA->ODR |= GPIO_ODR_ODR5 ;
+							break;
+			
+			default :
+							break;
+		}
+
+}
+
+
+void setupShips(void)
+{
+	strcpy(vessels[0].name, "aircraftCarrier");
+	vessels[0].sunk = false;
+	vessels[0].length = 5;
+	vessels[0].hits = 0;
+	vessels[0].vesselLocations[0].c = 2;
+	vessels[0].vesselLocations[0].r = 2;
+	vessels[0].vesselLocations[1].c = 2;
+	vessels[0].vesselLocations[1].r = 3;
+	vessels[0].vesselLocations[2].c = 2;
+	vessels[0].vesselLocations[2].r = 4;
+	vessels[0].vesselLocations[3].c = 2;
+	vessels[0].vesselLocations[3].r = 5;
+	vessels[0].vesselLocations[4].c = 2;
+	vessels[0].vesselLocations[4].r = 6;
+
+	strcpy(vessels[1].name, "Battleship");
+	vessels[1].sunk = false;
+	vessels[1].length = 4;
+	vessels[1].hits = 0;
+	vessels[1].vesselLocations[0].c = 4;
+	vessels[1].vesselLocations[0].r = 3;
+	vessels[1].vesselLocations[1].c = 5;
+	vessels[1].vesselLocations[1].r = 3;
+	vessels[1].vesselLocations[2].c = 6;
+	vessels[1].vesselLocations[2].r = 3;
+	vessels[1].vesselLocations[3].c = 7;
+	vessels[1].vesselLocations[3].r = 3;
+	vessels[1].vesselLocations[4].c = 110;
+	vessels[1].vesselLocations[4].r = 110;
+	
+	
+	strcpy(vessels[2].name, "Submarine");
+	vessels[2].sunk = false;
+	vessels[2].length = 3;
+	vessels[2].hits = 0;
+	vessels[2].vesselLocations[0].c = 7;
+	vessels[2].vesselLocations[0].r = 6;
+	vessels[2].vesselLocations[1].c = 7;
+	vessels[2].vesselLocations[1].r = 7;
+	vessels[2].vesselLocations[2].c = 7;
+	vessels[2].vesselLocations[2].r = 8;
+	vessels[2].vesselLocations[3].c = 110;
+	vessels[2].vesselLocations[3].r = 110;
+	vessels[2].vesselLocations[4].c = 110;
+	vessels[2].vesselLocations[4].r = 110;
+
+	strcpy(vessels[3].name, "Destroyer");
+	vessels[3].sunk = false;
+	vessels[3].length = 3;
+	vessels[3].hits = 0;
+	vessels[3].vesselLocations[0].c = 4;
+	vessels[3].vesselLocations[0].r = 8;
+	vessels[3].vesselLocations[1].c = 5;
+	vessels[3].vesselLocations[1].r = 8;
+	vessels[3].vesselLocations[2].c = 6;
+	vessels[3].vesselLocations[2].r = 8;
+	vessels[3].vesselLocations[3].c = 110;
+	vessels[3].vesselLocations[3].r = 110;
+	vessels[3].vesselLocations[4].c = 110;
+	vessels[3].vesselLocations[4].r = 110;
+
+	strcpy(vessels[4].name, "Patrol Boat");
+	vessels[4].sunk = false;
+	vessels[4].length = 2;
+	vessels[4].hits = 0;
+	vessels[4].vesselLocations[0].c = 9;
+	vessels[4].vesselLocations[0].r = 5;
+	vessels[4].vesselLocations[1].c = 9;
+	vessels[4].vesselLocations[1].r = 6;
+		vessels[4].vesselLocations[2].c = 110;
+	vessels[4].vesselLocations[2].r = 110;
+	vessels[4].vesselLocations[3].c = 110;
+	vessels[4].vesselLocations[3].r = 110;
+	vessels[4].vesselLocations[4].c = 110;
+	vessels[4].vesselLocations[4].r = 110;
+
+	
+}
+
+int attack(Location location,	vector <string> &sunkboats)
+{
+	unsigned int i;
+	unsigned int j;
+	for (i = 0; i < 5; i++)
+	{
+		for (j = 0; j < vessels[i].length; j++)
+		{
+			if (location.c == vessels[i].vesselLocations[j].c && location.r == vessels[i].vesselLocations[j].r)
+			{
+				vessels[i].hits++;														// for hit 
+           
+				if (vessels[i].hits == vessels[i].length)
+				{
+					vessels[i].sunk = true;																	//when hit and sunk
+                    sunkboats.push_back(vessels[i].name);
+            
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+			}
+		}
+	}
+    	return -1;							//when missed
+
+}
+
+bool checkInputs(Location checkTarget)
+{
+	if(checkTarget.c>=10 || checkTarget.c<0 || checkTarget.r>=10 || checkTarget.r<0)
+	{
+		return false;										//if wrong input entered
+	}
+	return true;				
+}

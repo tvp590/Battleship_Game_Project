@@ -1,0 +1,88 @@
+Dependencies for Project 'Battleship', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (.\src\Battleship.cpp)(0x638E5ED0)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality  -Wno-old-style-cast-I./RTE/Device/STM32F103RB-I./RTE/_Target_1-IC:/Temp/Keil/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Temp/Keil/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/battleship.o -MD)
+I (src\..\include\battleship.h)(0x638BD8FA)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdbool.h)(0x602B004C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__config)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035CCAA)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\string)(0x6035CCA8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\string_view)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__string)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\algorithm)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\initializer_list)(0x602B004E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cstddef)(0x602B004E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\version)(0x6035CCAA)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__nullptr)(0x602B0054)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\type_traits)(0x6035CCAA)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cstring)(0x602B004A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\string.h)(0x602B004E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\utility)(0x6035CCAA)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__tuple)(0x602B004C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cstdint)(0x602B0058)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x602B005A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__debug)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\iosfwd)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\wchar.h)(0x602B0054)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stddef.h)(0x602B004E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\wchar.h)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\memory)(0x6035CC9C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__availability)(0x60387D9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\typeinfo)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\exception)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__memory\base.h)(0x60387D9C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x602B0050)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cstdlib)(0x602B0058)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x6035CCA8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\new)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\limits)(0x602B0054)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\iterator)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__functional_base)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\tuple)(0x602B005A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdexcept)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__memory\allocator_traits.h)(0x60387D9C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__memory\pointer_traits.h)(0x60387D9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__memory\utilities.h)(0x60387D9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\functional)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\bit)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__bits)(0x60387D9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cstdio)(0x602B005A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdio.h)(0x602B0054)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035CCB4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cwchar)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cwctype)(0x602B004A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\cctype)(0x602B005A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\ctype.h)(0x602B004C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\ctype.h)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\wctype.h)(0x6035CCB2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\wctype.h)(0x6035CCB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\vector)(0x6035CCA8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__bit_reference)(0x6035CC96)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\climits)(0x602B005E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\limits.h)(0x602B004C)
+I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x6035CCAA)
+I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__split_buffer)(0x6035CC96)
+I (src\..\include\io.h)(0x637EB3FA)
+I (C:\Temp\Keil\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AE3E3E)
+I (RTE\_Target_1\RTE_Components.h)(0x637EB6C4)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AE3E3E)
+F (.\src\io_hw.cpp)(0x637EB31A)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality  -Wno-old-style-cast-I./RTE/Device/STM32F103RB-I./RTE/_Target_1-IC:/Temp/Keil/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Temp/Keil/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/io_hw.o -MD)
+I (src\..\include\io_hw.h)(0x637EB3FA)
+F (RTE\Device\STM32F103RB\RTE_Device.h)(0x5FC114CA)()
+F (RTE\Device\STM32F103RB\startup_stm32f10x_md.s)(0x61AE3E3E)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/STM32F103RB-I./RTE/_Target_1-IC:/Temp/Keil/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Temp/Keil/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 536" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_MD SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f10x_md.o)
+F (RTE\Device\STM32F103RB\system_stm32f10x.c)(0x6387DEB0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality  -Wno-old-style-cast-I./RTE/Device/STM32F103RB-I./RTE/_Target_1-IC:/Temp/Keil/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Temp/Keil/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/system_stm32f10x.o -MD)
+I (C:\Temp\Keil\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61AE3E3E)
+I (RTE\_Target_1\RTE_Components.h)(0x637EB6C4)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h)(0x60D4ADC2)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035CCB0)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D4ADC2)
+I (C:\Temp\Keil\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AE3E3E)
