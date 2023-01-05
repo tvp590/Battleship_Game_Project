@@ -22,5 +22,5 @@
 		
 		Situation 2 : Player 2 : attacker and Player 1: Victim
 					The above Situation 1 repeats with the roles and game units are changed. 
-		Situation3  : Same as Situation 1.
+		Situation3  : Same as Situation 1. 
 
