@@ -18,7 +18,7 @@
 					3. The attack was a \'93 Hit \'94 event. (Hit event indicating LED)
 					4. The attack was a \'93Hit and Sunk\'94 event. (Hit and Sunk event indicating LED)
 					5. Both the player noticed the guessed location into their bottom grid (using paper and pencil).
-		==> If the event is either Hit or Hit and sunk event then the above situation repeats which means the attacker will have one more chance to play and guess the location.
+						==> If the event is either Hit or Hit and sunk event then the above situation repeats which means the attacker will have one more chance to play and guess the location.
 		
 		Situation 2 : Player 2 : attacker and Player 1: Victim
 					The above Situation 1 repeats with the roles and game units are changed. 
